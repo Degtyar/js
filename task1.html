@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, td {
+            border: 1px solid black;
+        }
+        .black {
+            background: black;
+            color: white;
+        }
+    </style>
+    <script type="text/javascript">
+     function table() {
+         var y = 8;
+         var x = 8;
+         var row = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+         var col = [8, 7, 6, 5, 4, 3, 2, 1];
+         var body = document.getElementsByTagName('body')[0];
+         var table = document.createElement('table');
+         var tbdy = document.createElement('tbody');
+         for (var i = 0; i < x; i++) {
+             var tr = document.createElement('tr');
+             for (var j = 0; j < y; j++) {
+                 var td = document.createElement('td');
+                 td.innerHTML = col[i] + '' + row[j];
+                 if ((i + j) % 2 != 0) {
+                     td.classList.add('black');
+                 }
+                 tr.appendChild(td);
+             }
+             tbdy.appendChild(tr);
+         }
+         table.appendChild(tbdy);
+         body.appendChild(table);
+     }
+/*
+     function test() {
+         String.prototype.addToElement = function (tag, cl) {
+             var result = "<" + tag + " class='" + cl + "'>" + this + "</" + tag + ">";
+             return result;
+         }
+         var str1 = '312312sdafds';
+         alert(str1.addToElement('tr', 'test'));
+     }
+
+     function myHTML (){
+         this.text = '';
+
+         this.addText = function (_text) {
+             return this.text += _text;
+         }
+
+         this.addH = function (_str,_N) {
+             var result = "<H" + _N + ">" + this.text + _str + "</H" + _N + ">";
+             return result;
+         }
+         this.showHTML = function (){
+             return this.text;
+         }
+     }
+     var teex = new myHTML();
+     teex.addText('twerew');
+     document.write(teex.addH('aaaa',3));
+     alert(teex.showHTML());
+*/
+
+    </script>
+
+
+</head>
+<body >
+<button onclick="table()">Try it</button>
+<!--
+<button onclick="test()">Try it test</button>
+<button onclick="myHTML()">Try it test</button>
+<table id = 'test'></table>
+-->
+</body>
+</html>
